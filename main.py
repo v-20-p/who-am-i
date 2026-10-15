@@ -1,7 +1,10 @@
 import uvicorn
 from fastapi import FastAPI
 
+from zones.blackZone import router as black_zone_router
+
 app = FastAPI(title="Who Am I API", version="0.1.0")
+app.include_router(black_zone_router)
 
 
 @app.get("/health", tags=["health"])
